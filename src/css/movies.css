@@ -1,0 +1,16 @@
+.movies {
+  padding-top: 50px;
+}
+
+.movies h2 {
+  margin-bottom: 15px;
+}
+
+.movies-list {
+  display: grid;
+  grid-template-columns: minmax(150px, 250px) minmax(150px, 250px) minmax(150px, 250px) minmax(150px, 250px);
+  justify-content: space-around;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+/*# sourceMappingURL=movies.css.map */
