@@ -20,18 +20,16 @@ class Movies extends Component {
     render() {
         console.log(this.state)
         return (
-            <main>
-                <section className="movies">
-                    <div className="container">
-                        <h2>Popular Movies</h2>
-                        <div className="movies-list">
-                            { this.state.movies && this.state.movies.map(movie => {
-                                return <Movie key={movie.id} movie={movie}/>
-                            }) }
-                        </div>
+            <section className="movies">
+                <div className="container">
+                    <h2>Popular Movies</h2>
+                    <div className="movies-list">
+                        { this.state.movies && this.state.movies.map(movie => {
+                            return <Movie key={movie.id} movie={movie}/>
+                        }) }
                     </div>
-                </section>
-            </main>
+                </div>
+            </section>
         )
     }
 }

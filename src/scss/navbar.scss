@@ -1,0 +1,18 @@
+#mainNav {
+    background-color: #001628;
+    .container {
+        max-width: 1300px;
+    }
+    .fa-search {
+        color: white;
+        &:hover {
+            color: rgba(255, 255, 255, 0.61);
+            cursor: pointer;
+        }
+    }
+
+    #searchWindow {
+        top: 10%;
+    }
+}
+

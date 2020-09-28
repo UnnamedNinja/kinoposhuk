@@ -1,0 +1,21 @@
+#mainNav {
+  background-color: #001628;
+}
+
+#mainNav .container {
+  max-width: 1300px;
+}
+
+#mainNav .fa-search {
+  color: white;
+}
+
+#mainNav .fa-search:hover {
+  color: rgba(255, 255, 255, 0.61);
+  cursor: pointer;
+}
+
+#mainNav #searchWindow {
+  top: 10%;
+}
+/*# sourceMappingURL=navbar.css.map */

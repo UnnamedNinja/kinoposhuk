@@ -8,9 +8,13 @@
 
 .movies-list {
   display: grid;
-  grid-template-columns: minmax(150px, 250px) minmax(150px, 250px) minmax(150px, 250px) minmax(150px, 250px);
-  justify-content: space-around;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-between;
   column-gap: 20px;
   row-gap: 20px;
+}
+
+.movie-card {
+  max-width: 250px;
 }
 /*# sourceMappingURL=movies.css.map */

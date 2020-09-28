@@ -4,4 +4,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.page-numeration {
+  margin: 40px 0;
+}
+
+.page-numeration .page-numbers {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.page-numeration .page-link {
+  color: #001628;
+}
 /*# sourceMappingURL=index.css.map */
