@@ -6,6 +6,10 @@
   max-width: 1300px;
 }
 
+#mainNav .navbar-brand {
+  font-family: Impact, fantasy;
+}
+
 #mainNav .fa-search {
   color: white;
 }
@@ -17,5 +21,24 @@
 
 #mainNav #searchWindow {
   top: 10%;
+}
+
+#mainNav .modal-btns {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#mainNav .modal-btns button {
+  background-color: #fff;
+  border: 1px solid black;
+  padding: 10px 25px;
+}
+
+#mainNav .modal-btns button:hover {
+  background-color: rgba(0, 0, 0, 0.158);
+}
+
+#mainNav .modal-btns button .fa-search {
+  color: black;
 }
 /*# sourceMappingURL=navbar.css.map */

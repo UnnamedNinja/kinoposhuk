@@ -11,6 +11,24 @@
     justify-content: space-between;
     column-gap: 20px;
     row-gap: 20px;
+    position: relative;
+}
+
+.search-results {
+    margin: 25px 0;
+    padding-left: 10px;
+    span {
+        background-color: black;
+        color: white;
+        padding: 5px;
+        border-radius: 10px;
+    }
+    .fa-times {
+        cursor: pointer;
+        &:hover {
+            color: rgba(255, 255, 255, 0.404);
+        }
+    }
 }
 
 

@@ -3,6 +3,9 @@
     .container {
         max-width: 1300px;
     }
+    .navbar-brand {
+        font-family: Impact, fantasy;
+    }
     .fa-search {
         color: white;
         &:hover {
@@ -13,6 +16,21 @@
 
     #searchWindow {
         top: 10%;
+    }
+    .modal-btns {
+        margin-top: 20px;
+        text-align: center;
+        button {
+            background-color: #fff;
+            border: 1px solid black;
+            padding: 10px 25px;
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.158);
+            }
+            & .fa-search {
+                color: black;
+            }
+        }
     }
 }
 
