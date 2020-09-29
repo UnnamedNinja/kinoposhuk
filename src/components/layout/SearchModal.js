@@ -18,7 +18,7 @@ class SearchModal extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.searchForMovies(this.state.searchValue)
+        this.props.searchForMovies('1', this.state.searchValue)
         this.modalCloseRef.current.click();
         this.setState({
             searchValue: ''
@@ -61,7 +61,7 @@ class SearchModal extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        searchForMovies: (value) => dispatch(searchForMovies(value))
+        searchForMovies: (pageNumber, value) => dispatch(searchForMovies(pageNumber, value))
     }
 }
 

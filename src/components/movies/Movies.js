@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 import Movie from './Movie'
 import { connect } from 'react-redux';
 import { searchForMovies, loadPopular } from '../../store/actions/moviesActions'
+import PageNumbers from '../layout/PageNumbers'
 
 class Movies extends Component {
 
     componentDidMount() {
-        this.props.loadPopular();
+        this.props.loadPopular('1');
     }
 
     handleClick = () => {
-        this.props.loadPopular();
+        this.props.loadPopular('1');
     }
 
     render() {
@@ -18,11 +19,26 @@ class Movies extends Component {
             <section className="movies">
                 <div className="container">
                     { this.props.moviesData?.searchValue ? (
-                        <div className="search-results">
-                            <span>{this.props.moviesData.searchValue} <i onClick={this.handleClick} className="fas fa-times"></i></span>
-                        </div>
+                        <>
+                            <div className="search-results">
+                                <span>{this.props.moviesData.searchValue} <i onClick={this.handleClick} className="fas fa-times"></i></span>
+                            </div>
+                            <PageNumbers 
+                                totalPages={this.props.moviesData?.totalPages}
+                                loadPage={this.props.searchForMovies}
+                                searchValue={this.props.moviesData.searchValue}
+                                page={this.props.moviesData.page}
+                            />
+                        </>
                     ) : (
-                        <h2>Popular Movies</h2>
+                        <>
+                            <h2>Popular Movies</h2>
+                            <PageNumbers 
+                                totalPages={this.props.moviesData?.totalPages}
+                                loadPage={this.props.loadPopular}
+                                page={this.props.moviesData?.page}
+                            />
+                        </>
                     )}
                     <div className="movies-list">
                         { this.props.moviesData && this.props.moviesData.movies.map(movie => {
@@ -36,7 +52,6 @@ class Movies extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         moviesData: state.app.moviesData
     }
@@ -44,8 +59,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        searchForMovies: (value) => dispatch(searchForMovies(value)),
-        loadPopular: () => dispatch(loadPopular())
+        searchForMovies: (pageNumber, value) => dispatch(searchForMovies(pageNumber, value)),
+        loadPopular: (pageNumber) => dispatch(loadPopular(pageNumber))
     }
 }
 

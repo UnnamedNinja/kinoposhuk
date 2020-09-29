@@ -1,25 +1,21 @@
 import React from 'react'
+import Pagination from '@material-ui/lab/Pagination';
 
-const PageNumbers = () => {
+const PageNumbers = (props) => {
+
+    const handleChange = (e, value) => {
+        props.loadPage(value, props.searchValue)
+    }
+
     return (
         <div className="page-numeration">
-            <nav className="page-numbers">
-                <ul className="pagination">
-                    <li className="page-item">
-                    <a className="page-link" href="/" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                    </li>
-                    <li className="page-item"><a className="page-link" href="/">1</a></li>
-                    <li className="page-item"><a className="page-link" href="/">2</a></li>
-                    <li className="page-item"><a className="page-link" href="/">3</a></li>
-                    <li className="page-item">
-                    <a className="page-link" href="/" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                    </li>
-                </ul>
-            </nav>
+            <Pagination 
+                className="pagination" 
+                count={props.totalPages} 
+                color="primary" 
+                onChange={handleChange}
+                page={props.page ? props.page : 1}
+            />
         </div>
     )
 }

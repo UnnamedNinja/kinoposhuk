@@ -17,14 +17,15 @@
 
 .search-results {
   margin: 25px 0;
-  padding-left: 10px;
+  text-align: center;
 }
 
 .search-results span {
   background-color: black;
   color: white;
-  padding: 5px;
+  padding: 5px 15px;
   border-radius: 10px;
+  font-size: 20px;
 }
 
 .search-results .fa-times {
@@ -37,5 +38,10 @@
 
 .movie-card {
   max-width: 250px;
+}
+
+.pagination {
+  width: fit-content;
+  margin: 0 auto;
 }
 /*# sourceMappingURL=movies.css.map */
