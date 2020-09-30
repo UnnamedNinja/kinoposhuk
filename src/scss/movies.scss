@@ -1,5 +1,5 @@
 .movies {
-    padding-top: 50px;
+    padding: 50px 0;
     h2{
         margin-bottom: 15px;
     }
@@ -35,11 +35,19 @@
 
 .movie-card {
     max-width: 250px;
+    .no-img {
+        min-height: 350px;
+    }
 }
 
 
 .pagination {
     width: fit-content;
     margin: 0 auto;
+    button {
+        &:focus{
+            outline: none;
+        }
+    }
 }
 

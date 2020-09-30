@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Movie from './Movie'
 import { connect } from 'react-redux';
 import { searchForMovies, loadPopular } from '../../store/actions/moviesActions'
-import PageNumbers from '../layout/PageNumbers'
+import Pagination from '@material-ui/lab/Pagination';
 
 class Movies extends Component {
 
@@ -10,8 +10,16 @@ class Movies extends Component {
         this.props.loadPopular('1');
     }
 
-    handleClick = () => {
+    handleCancelSearch = () => {
         this.props.loadPopular('1');
+    }
+
+    handlePopularPagination = (e, value) => {
+        this.props.loadPopular(value)
+    }
+
+    handleSearchPagination = (e, value) => {
+        this.props.searchForMovies(value, this.props.moviesData?.searchValue)
     }
 
     render() {
@@ -21,23 +29,30 @@ class Movies extends Component {
                     { this.props.moviesData?.searchValue ? (
                         <>
                             <div className="search-results">
-                                <span>{this.props.moviesData.searchValue} <i onClick={this.handleClick} className="fas fa-times"></i></span>
+                                <span>{this.props.moviesData.searchValue} <i onClick={this.handleCancelSearch} className="fas fa-times"></i></span>
                             </div>
-                            <PageNumbers 
-                                totalPages={this.props.moviesData?.totalPages}
-                                loadPage={this.props.searchForMovies}
-                                searchValue={this.props.moviesData.searchValue}
-                                page={this.props.moviesData.page}
-                            />
+                            <div className="page-numeration">
+                                <Pagination 
+                                    className="pagination" 
+                                    count={this.props.moviesData?.totalPages} 
+                                    color="primary" 
+                                    onChange={this.handleSearchPagination}
+                                    page={this.props.moviesData?.page ? this.props.moviesData.page : 1}
+                                />
+                            </div>
                         </>
                     ) : (
                         <>
                             <h2>Popular Movies</h2>
-                            <PageNumbers 
-                                totalPages={this.props.moviesData?.totalPages}
-                                loadPage={this.props.loadPopular}
-                                page={this.props.moviesData?.page}
-                            />
+                            <div className="page-numeration">
+                                <Pagination 
+                                    className="pagination" 
+                                    count={this.props.moviesData?.totalPages} 
+                                    color="primary" 
+                                    onChange={this.handlePopularPagination}
+                                    page={this.props.moviesData?.page ? this.props.moviesData.page : 1}
+                                />
+                            </div>
                         </>
                     )}
                     <div className="movies-list">
